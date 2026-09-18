@@ -21,6 +21,12 @@ jobs:
           repository: samyshyaka/agentsec-bench
           path: agentsec-bench
 
+      - name: Checkout agentguard
+        uses: actions/checkout@v4
+        with:
+          repository: samyshyaka/agentguard
+          path: agentguard
+
       - name: Install uv
         uses: astral-sh/setup-uv@v3
 
