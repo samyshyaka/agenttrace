@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from agentsec_bench.types import ToolCall
+from agentsec_bench.core.types import ToolCall
 
 
 @dataclass
