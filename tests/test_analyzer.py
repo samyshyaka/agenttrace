@@ -1,4 +1,4 @@
-from agentsec_bench.types import ToolCall
+from agentsec_bench.core.types import ToolCall
 from agenttrace.analyzer import SequenceAnalyzer
 
 
