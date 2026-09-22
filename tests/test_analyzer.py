@@ -52,3 +52,27 @@ def test_suspicious_destination_is_flagged():
     )
     findings = analyzer.analyze(result)
     assert any(f.rule_id == "SUSPICIOUS_DATA_DESTINATION" for f in findings)
+
+
+def test_excessive_tool_frequency_is_flagged():
+    analyzer = SequenceAnalyzer(frequency_threshold=3)
+    result = ScenarioResult(
+        scenario_id="TEST-005",
+        trace=[ToolCall(tool_name="approve_payment", args={"id": i}) for i in range(4)],
+        unauthorized_tool_calls=[],
+        suspicious_destinations=[],
+    )
+    findings = analyzer.analyze(result)
+    assert any(f.rule_id == "EXCESSIVE_TOOL_FREQUENCY" for f in findings)
+
+
+def test_normal_call_count_is_not_flagged():
+    analyzer = SequenceAnalyzer(frequency_threshold=3)
+    result = ScenarioResult(
+        scenario_id="TEST-006",
+        trace=[ToolCall(tool_name="approve_payment", args={"id": i}) for i in range(3)],
+        unauthorized_tool_calls=[],
+        suspicious_destinations=[],
+    )
+    findings = analyzer.analyze(result)
+    assert findings == []
