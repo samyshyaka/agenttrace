@@ -1,3 +1,5 @@
+> **This repository has moved.** This project now lives in the [Open Agent Security Initiative repository](https://github.com/samyshyaka/agentsec), in the [`agenttrace/`](https://github.com/samyshyaka/agentsec/tree/main/agenttrace) folder. This repository is kept for its history, issues and pull requests.
+
 # AgentTrace
 
 ## Status
